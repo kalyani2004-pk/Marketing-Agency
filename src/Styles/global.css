@@ -8,10 +8,12 @@
   --background: #ffffff;
   --foreground: #0a0a0a;
 
-  --primary: #007aff; /* neon blue */
+  --primary: #007aff;
+  /* neon blue */
   --primary-foreground: #ffffff;
 
-  --accent: #8b5cf6; /* electric purple */
+  --accent: #8b5cf6;
+  /* electric purple */
   --accent-foreground: #ffffff;
 
   /* Neutrals */
@@ -94,7 +96,8 @@
 @theme inline {
   /* map fonts: Inter for body, Poppins for headings */
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono); /* keep mono for code if needed */
+  --font-mono: var(--font-geist-mono);
+  /* keep mono for code if needed */
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -144,12 +147,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   .font-heading {
     font-family:
       var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
@@ -180,5 +186,19 @@
 @keyframes rotate {
   to {
     transform: rotate(1turn);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }

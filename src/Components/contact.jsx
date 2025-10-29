@@ -1,20 +1,13 @@
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { MapPin, Mail, Phone } from "lucide-react"
 
 export function Contact() {
-    const [status, setStatus] = useState("idle")
-
-    function onSubmit(e) {
-        e.preventDefault()
-        setStatus("sent")
-    }
 
     return (
         <section id="contact" className="scroll-mt-24 border-t border-border py-16 md:py-24" aria-label="Contact">
             <div className="mx-auto max-w-6xl px-4">
                 <motion.h2
-                    className="font-heading text-3xl font-bold md:text-4xl"
+                    className="font-heading text-3xl font-bold md:text-4xl text-center"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
@@ -23,90 +16,57 @@ export function Contact() {
                     Let’s build something amazing together.
                 </motion.h2>
 
-                <div className="mt-8 grid gap-6 md:grid-cols-2">
-                    <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-foreground/5 p-5 backdrop-blur">
-                        <label className="block text-sm">
-                            Name
-                            <input
-                                type="text"
-                                name="name"
-                                required
-                                className="mt-1 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm outline-none ring-0 focus:ring-2 focus:ring-primary/40"
-                                aria-label="Name"
-                            />
-                        </label>
+                <div className="mt-8 flex justify-center">
+                    <a
+                        href="https://wa.me/7875359828"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center rounded-2xl px-8 py-4 text-lg font-semibold text-foreground ring-1 ring-primary/20 transition hover:animate-pulse bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-purple)]"
+                    >
+                        Contact Us on WhatsApp
+                    </a>
+                </div>
 
-                        <label className="mt-4 block text-sm">
-                            Email
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                className="mt-1 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm outline-none ring-0 focus:ring-2 focus:ring-primary/40"
-                                aria-label="Email"
-                            />
-                        </label>
+                <div className="mt-12 rounded-2xl border border-border bg-foreground/5 p-5 backdrop-blur max-w-2xl mx-auto">
+                    <h3 className="font-heading text-xl font-bold mb-4 text-center">Grow Your Business with Expert Guidance!</h3>
+                    <p className="text-sm text-muted-foreground mb-6 text-center">Connect with our experts on WhatsApp and let’s create a powerful online strategy together.</p>
 
-                        <label className="mt-4 block text-sm">
-                            Message
-                            <textarea
-                                name="message"
-                                rows={5}
-                                required
-                                className="mt-1 w-full resize-y rounded-xl border border-input bg-background px-3 py-2 text-sm outline-none ring-0 focus:ring-2 focus:ring-primary/40"
-                                aria-label="Message"
-                            />
-                        </label>
-
-                        <button
-                            type="submit"
-                            className="mt-5 inline-flex w-full items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold text-foreground ring-1 ring-primary/20 transition hover:animate-pulse bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-purple)]"
-                        >
-                            {status === "sent" ? "Message Sent ✓" : "Send Message"}
-                        </button>
-                    </form>
-
-                    <div className="rounded-2xl border border-border bg-foreground/5 p-5 backdrop-blur">
-                        <h3 className="font-heading text-xl font-bold mb-4">Grow Your Business with Expert Guidance!</h3>
-                        <p className="text-sm text-muted-foreground mb-6">Connect with our experts, fill out the form, and let’s create a powerful online strategy together.</p>
-
-                        <div className="space-y-4">
-                            <div className="flex items-start gap-3">
-                                <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <p className="font-semibold text-sm">Location</p>
-                                    <a
-                                        href="https://www.google.com/maps/search/?api=1&query=Ring+Road,+above+Hotel+Gulmohar,+near+JDCC+Bank,+Ganesh+Colony,+Jalgaon,+Maharashtra+425001"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                    >
-                                        Ring Rd, above Hotel Gulmohar, near JDCC Bank, Ganesh Colony, Jalgaon, Maharashtra 425001
-                                    </a>
-                                </div>
+                    <div className="space-y-4">
+                        <div className="flex items-start gap-3">
+                            <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                            <div>
+                                <p className="font-semibold text-sm">Location</p>
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=Ring+Road,+above+Hotel+Gulmohar,+near+JDCC+Bank,+Ganesh+Colony,+Jalgaon,+Maharashtra+425001"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Address: Infront of Mahadev Temple, Bhushan Colony Ramanand Nagar, Jalgaon, Maharashtra, India 425001.
+                                </a>
                             </div>
+                        </div>
 
-                            <div className="flex items-start gap-3">
-                                <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <p className="font-semibold text-sm">E-Mail us</p>
-                                    <a
-                                        href="mailto:contact@contentocean.in"
-                                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                    >
-                                        contact@contentocean.in
-                                    </a>
-                                </div>
+                        <div className="flex items-start gap-3">
+                            <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                            <div>
+                                <p className="font-semibold text-sm">E-Mail us</p>
+                                <a
+                                    href="mailto:onexdigiserv@gmail.com"
+                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    onexdigiserv@gmail.com
+                                </a>
                             </div>
+                        </div>
 
-                            <div className="flex items-start gap-3">
-                                <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <p className="font-semibold text-sm">Phone</p>
-                                    <p className="text-sm text-muted-foreground">
-                                        +91 7875359828 | +91 7822860876
-                                    </p>
-                                </div>
+                        <div className="flex items-start gap-3">
+                            <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                            <div>
+                                <p className="font-semibold text-sm">Phone</p>
+                                <p className="text-sm text-muted-foreground">
+                                    +91 7875359828 | +91 7822860876
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -115,7 +75,7 @@ export function Contact() {
 
             {/* Floating WhatsApp button */}
             <a
-                href="https://wa.me/1234567890"
+                href="https://wa.me/7875359828"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"

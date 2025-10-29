@@ -1,6 +1,6 @@
-import './App.css'
 import { About } from "./Components/about"
 import { Contact } from "./Components/contact"
+import { FloatingStickers } from "./Components/FloatingStickers"
 import { Footer } from "./Components/footer"
 import { Hero } from "./Components/hero"
 import { Navbar } from "./Components/navbar"
@@ -13,6 +13,7 @@ import { WebsiteDevelopment } from "./Components/website-development"
 function App() {
   return (
     <ThemeProvider>
+      <FloatingStickers />
       <div className="flex min-h-screen flex-col">
         <Navbar />
         <Hero />

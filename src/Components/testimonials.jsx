@@ -38,7 +38,7 @@ export function Testimonials() {
     return (
         <section
             id="testimonials"
-            className="scroll-mt-24 border-t border-border bg-[rgba(255,255,255,0.02)] py-16 md:py-24 relative overflow-hidden"
+            className="scroll-mt-24 bg-[rgba(255,255,255,0.02)] py-16 md:py-24 relative overflow-hidden"
             aria-label="Testimonials"
         >
             {/* Animated background elements */}
@@ -87,7 +87,7 @@ export function Testimonials() {
                             {testimonials.map((t, i) => (
                                 <CarouselItem key={i} className="basis-full sm:basis-1/2 lg:basis-[calc(33.333%-1rem)]">
                                     <motion.article
-                                        className="h-full rounded-2xl border border-border bg-foreground/5 p-4 backdrop-blur"
+                                        className="h-full relative rounded-2xl bg-foreground/5 p-4 backdrop-blur"
                                         initial={{ opacity: 0, y: 30, scale: 0.9 }}
                                         whileInView={{ opacity: 1, y: 0, scale: 1 }}
                                         viewport={{ once: true, amount: 0.3 }}
@@ -102,6 +102,30 @@ export function Testimonials() {
                                             transition: { duration: 0.3 }
                                         }}
                                     >
+                                        <motion.svg
+                                            className="absolute inset-0 w-full h-full"
+                                            viewBox="0 0 100 100"
+                                            preserveAspectRatio="none"
+                                            initial={{ pathLength: 0 }}
+                                            whileInView={{ pathLength: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
+                                        >
+                                            <motion.path
+                                                d="M 0 16 Q 0 0 16 0 L 84 0 Q 100 0 100 16 L 100 84 Q 100 100 84 100 L 16 100 Q 0 100 0 84 Z"
+                                                fill="none"
+                                                stroke="url(#gradient)"
+                                                strokeWidth="0.5"
+                                                pathLength={1}
+                                            />
+                                            <defs>
+                                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" stopColor="var(--brand-blue)" />
+                                                    <stop offset="50%" stopColor="transparent" />
+                                                    <stop offset="100%" stopColor="var(--brand-purple)" />
+                                                </linearGradient>
+                                            </defs>
+                                        </motion.svg>
                                         <motion.div
                                             className="flex items-center gap-3"
                                             initial={{ opacity: 0, x: -20 }}
@@ -154,27 +178,15 @@ export function Testimonials() {
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.5, delay: i * 0.1 + 0.6 }}
                                         >
-                                            <motion.button
-                                                onClick={() => window.open(t.videoUrl, '_blank')}
-                                                className="flex items-center gap-2 bg-red-600 text-white px-3 py-2 rounded-lg hover:bg-red-700 transition"
-                                                whileHover={{
-                                                    scale: 1.05,
-                                                    boxShadow: "0 0 20px rgba(239, 68, 68, 0.4)"
-                                                }}
-                                                whileTap={{ scale: 0.95 }}
-                                                transition={{ duration: 0.2 }}
-                                            >
-                                                <motion.svg
-                                                    className="w-5 h-5"
-                                                    fill="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                    whileHover={{ rotate: 360 }}
-                                                    transition={{ duration: 0.5 }}
-                                                >
-                                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                                                </motion.svg>
-                                                Watch Video
-                                            </motion.button>
+                                            <motion.iframe
+                                                src={t.videoUrl}
+                                                title={`${t.name} testimonial video`}
+                                                className="w-full aspect-[9/16] max-h-48 rounded-lg border border-border"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                whileHover={{ scale: 1.02 }}
+                                                transition={{ duration: 0.3 }}
+                                            />
                                         </motion.div>
                                     </motion.article>
                                 </CarouselItem>

@@ -51,6 +51,34 @@ export function Portfolio() {
                             transition={{ duration: 0.45, delay: i * 0.05 }}
                             className="group relative overflow-hidden rounded-2xl border border-border"
                         >
+                            <motion.svg
+                                className="absolute inset-0 w-full h-full"
+                                viewBox="0 0 100 100"
+                                preserveAspectRatio="none"
+                                initial={{ pathLength: 0 }}
+                                whileInView={{ pathLength: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
+                            >
+                                <motion.path
+                                    d="M 0 16 Q 0 0 16 0 L 84 0 Q 100 0 100 16 L 100 84 Q 100 100 84 100 L 16 100 Q 0 100 0 84 Z"
+                                    fill="none"
+                                    stroke="url(#gradient)"
+                                    strokeWidth="0.5"
+                                    pathLength={1}
+                                />
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stopColor="var(--brand-blue)">
+                                            <animate attributeName="stop-color" values="var(--brand-blue);var(--brand-purple)" dur="2s" begin="1.5s" />
+                                        </stop>
+                                        <stop offset="50%" stopColor="transparent" />
+                                        <stop offset="100%" stopColor="var(--brand-purple)">
+                                            <animate attributeName="stop-color" values="var(--brand-purple);var(--brand-blue)" dur="2s" begin="1.5s" />
+                                        </stop>
+                                    </linearGradient>
+                                </defs>
+                            </motion.svg>
                             <img
                                 src={`/.jpg?height=600&width=800&query=${encodeURIComponent(
                                     `${p.title} ${p.category}`,

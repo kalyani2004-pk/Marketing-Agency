@@ -40,7 +40,7 @@ export function Navbar() {
             ].join(" ")}
             role="banner"
         >
-            <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4" aria-label="Primary">
+            <nav className="mx-auto flex max-w-6xl items-center justify-between px-2 py-2" aria-label="Primary">
                 <motion.a
                     href="#home"
                     className="flex items-center"
@@ -48,13 +48,12 @@ export function Navbar() {
                     whileTap={{ scale: 0.95 }}
                 >
                     <motion.img
-                        src="/logo.png"
+                        src="/logo2.png"
                         alt="ContentOcean Logo"
-                        className="h-16 w-36 object-contain dark:invert rounded-md shadow-lg"
+                        className="h-30 object-contain drop-shadow-md rounded-full"
                         whileHover={{
-                            scale: 1.1,
-                            boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
-                            rotate: [0, -2, 2, 0]
+                            scale: 1.05,
+                            rotate: [0, -1, 1, 0]
                         }}
                         transition={{ duration: 0.3 }}
                     />
